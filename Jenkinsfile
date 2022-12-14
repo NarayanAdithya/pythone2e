@@ -14,6 +14,7 @@ pipeline {
         {
             steps{
                 script{
+                    activateEnv()
                     installDependencies()
                 }
             }
@@ -21,6 +22,7 @@ pipeline {
         stage("linting"){
             steps{
                 script{
+                    activateEnv()
                     linter()
                 }
             }
@@ -28,6 +30,7 @@ pipeline {
         stage("testing"){
             steps{
                 script{
+                    activateEnv()
                     testCases()
                 }
             }
