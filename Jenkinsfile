@@ -2,6 +2,9 @@
 
 pipeline {
     agent any
+    environment{
+        Version = ''
+    }
     stages{
         stage("chkVersion"){
             steps{
