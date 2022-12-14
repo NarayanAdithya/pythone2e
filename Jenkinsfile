@@ -5,12 +5,16 @@ pipeline {
     stages{
         stage("chkVersion"){
             steps{
-                version = chkVersion()
+                script{
+                    version = chkVersion()
+                }
             }
         }
         stage("prntVersion"){
             steps{
-                echo "$version"
+                script{
+                    echo "$version"
+                }
             }
         }
     }
