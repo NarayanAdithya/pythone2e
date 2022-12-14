@@ -11,5 +11,11 @@ pipeline {
                 chkVersion()
             }
         }
+        stage("chkVersionAgain")
+        {
+            steps{
+                echo "$Version"
+            }
+        }
     }
 }
