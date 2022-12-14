@@ -3,17 +3,32 @@ def version
 pipeline {
     agent any
     stages{
-        stage("chkVersion"){
+        stage("createvenv"){
             steps{
                 script{
-                    version = chkVersion()
+                    makeEnv()
                 }
             }
         }
-        stage("prntVersion"){
+        stage("installDeps")
+        {
             steps{
                 script{
-                    echo "$version"
+                    installDependencies()
+                }
+            }
+        }
+        stage("linting"){
+            steps{
+                script{
+                    linter()
+                }
+            }
+        }
+        stage("testing"){
+            steps{
+                script{
+                    testCases()
                 }
             }
         }
