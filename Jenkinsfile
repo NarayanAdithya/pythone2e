@@ -1,4 +1,4 @@
-@Library('python-jenkins-library')_
+@Library('python-app-library')_
 def version
 pipeline {
     agent any
