@@ -3,7 +3,7 @@ import os
 
 class Config:
     SECRET_KEY: str = os.environ.get('SECRET_KEY', 'randomkey@12343434*^&$')
-    TEMP = 'adithya'
+    TEMP='adithya'
 
 
 class Production(Config):
