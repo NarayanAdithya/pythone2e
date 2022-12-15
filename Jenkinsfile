@@ -1,5 +1,4 @@
 @Library('python-app-library')_
-def version
 pipeline {
     agent any
     stages{
@@ -35,18 +34,10 @@ pipeline {
                 }
             }
         }
-        stage("Increment Version"){
-            steps{
-                script{
-                    incrementVersion()
-                    version = getVersion()
-                }
-            }
-        }
         stage("Build Image"){
             steps{
                 script{
-                    buildDockerImage(version)
+                    buildDockerImage()
                 }
             }
         }
@@ -60,7 +51,7 @@ pipeline {
         stage("Push Artifact"){
             steps{
                 script{
-                    dockerPush(version)
+                    dockerPush()
                 }
             }
         }
