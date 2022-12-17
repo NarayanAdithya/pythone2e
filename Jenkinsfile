@@ -1,4 +1,5 @@
 @Library('python-app-library')_
+def version
 pipeline {
     agent any
     stages{
@@ -34,10 +35,18 @@ pipeline {
                 }
             }
         }
+        stage("versionIncrement"){
+            steps{
+                script{
+                    incrementVersion("dev")
+                    version=getVersion()
+                }
+            }
+        }
         stage("Build Image"){
             steps{
                 script{
-                    buildDockerImage()
+                    buildDockerImage(version)
                 }
             }
         }
@@ -51,9 +60,17 @@ pipeline {
         stage("Push Artifact"){
             steps{
                 script{
-                    dockerPush()
+                    dockerPush(version)
                 }
             }
         }
+        stage("Commit Versin Update"){
+            steps{
+                script{
+                    makeupdatecommit("Pythone2e")
+                }
+            }
+        }
+        
     }
 }
