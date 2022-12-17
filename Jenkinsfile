@@ -43,6 +43,13 @@ pipeline {
                 }
             }
         }
+        stage("Commit Version Update"){
+            steps{
+                script{
+                    makeupdatecommit("Pythone2e")
+                }
+            }
+        }
         stage("Build Image"){
             steps{
                 script{
@@ -64,13 +71,5 @@ pipeline {
                 }
             }
         }
-        stage("Commit Versin Update"){
-            steps{
-                script{
-                    makeupdatecommit("Pythone2e")
-                }
-            }
-        }
-        
     }
 }
