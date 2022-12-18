@@ -39,7 +39,7 @@ pipeline {
             steps{
                 script{
                     incrementVersion("dev")
-                    version=getVersion()
+                    version=getVersion("version.toml")
                 }
             }
         }
