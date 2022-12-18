@@ -53,7 +53,7 @@ pipeline {
         stage("Build Image"){
             steps{
                 script{
-                    buildDockerImage(version)
+                    buildDockerImage(version,"pythone2e")
                 }
             }
         }
@@ -67,7 +67,7 @@ pipeline {
         stage("Push Artifact"){
             steps{
                 script{
-                    dockerPush(version)
+                    dockerPush(version,"pythone2e")
                 }
             }
         }
